@@ -1,0 +1,41 @@
+import java.util.InputMismatchException;
+import java.util.Random;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        
+        Scanner scanner = new Scanner(System.in);
+        Random random = new Random();
+        int numeroSecreto = random.nextInt(500)+1;
+        int numerosIntentos = 0;
+        boolean adivinado = false;
+
+
+        System.out.println("He generado un numero entre 1 y 500. Puedes adivinarlo? \n");
+
+        while (!adivinado){
+            System.out.println("Introduce un numero:");
+            try {
+                int numeroUsuario = scanner.nextInt();
+                scanner.nextLine();
+                numerosIntentos++;
+
+                if (numeroUsuario == numeroSecreto) {
+                    adivinado = true;
+                    System.out.println("Felicidades, adivinaste.");
+                    System.out.println("Lo lograste en " + numerosIntentos + " intentos.");
+                } else if (numeroUsuario < numeroSecreto) {
+                    System.out.println("Mas para arriba. ");
+                } else {
+                    System.out.println("Mas para abajo. ");
+                }
+            }catch (InputMismatchException e){
+                System.out.println("Error: debes introducir un numero valido. ");
+                scanner.next();
+                numerosIntentos++;
+            }
+        }
+        scanner.close();
+    }
+}

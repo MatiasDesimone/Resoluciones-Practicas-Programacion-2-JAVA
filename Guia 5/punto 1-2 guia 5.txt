@@ -1,0 +1,38 @@
+//        ¿Qué está mal en el siguiente bloque de código?
+//        try
+//        {
+//            Persona p = baseDeDatos.buscar(datos);
+//            System.out.println(“Los datos pertenecen a: ” + p);
+//        }
+//        catch(Exception e) {
+//// Maneja cualquiera de las excepciones comprobadas
+//        }
+//        catch(RuntimeException e) {
+//// Maneja cualquiera de las excepciones no comprobadas
+//        }
+
+
+    /// Lo que esta mal en este codigo es que el catch mas general esta ubicado arriba del mas especifico.
+
+
+
+//        Explique lo que sucede en el siguiente código y por qué.
+//        public static class EjemploExcepciones{
+//            public static int devuelveNumero(int num) {
+//                try {
+//                    if (num % 2 == 0) {
+//                        throw new Exception("Lanzando excepcion");
+//                    }
+//                    return 1;
+//                } catch (Exception ex) {
+//                    ex.getMessage().concat("Rompi todo y pase por Catch");
+//                    return 2;
+//                } finally {
+//                    return 3;
+//                }
+//            }
+//        }
+
+
+//        Par: Lanza una excepción, entra en catch, luego en finally y retorna 3.
+//        Impar: No lanza excepción, retorna 1 en try, luego en finally y retorna 3.
